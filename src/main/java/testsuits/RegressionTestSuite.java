@@ -6,12 +6,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import br.org.dbserver.testcase.LoginTestCase;
+import br.org.dbserver.testcase.BS_Login_TestCase;
+
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	
-	LoginTestCase.class
+	BS_Login_TestCase.class
 	
 })
 public class RegressionTestSuite {

@@ -10,14 +10,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import verificationpoint.LoginVerificationPoint;
+
 
 import org.junit.Test;
 
 public class BS_Login_TestCase {
 
 	private WebDriver driver;
-	private LoginVerificationPoint verifificationpoint;
+	
 	
 	@Before 
 	public void setUp(){
@@ -26,7 +26,7 @@ public class BS_Login_TestCase {
 		this.driver = new ChromeDriver();
 		driver.get("https://devbs.azurewebsites.net");
 		
-		this.verifificationpoint = new LoginVerificationPoint(driver);
+		
 	}
 	
 	
@@ -43,6 +43,13 @@ public class BS_Login_TestCase {
 		
 		assertTrue(this.driver.getPageSource().contains("Bem Vindo!"));
 		
+		if(this.driver.getPageSource().contains("Bem Vindo!") == true)
+		{
+			System.out.println("Error T16A01");
+			
+		}
+	
+		
 	}
 	
 	
@@ -57,7 +64,14 @@ public class BS_Login_TestCase {
 		WebElement LoginButton = this.driver.findElement(By.tagName("button"));
 		LoginButton.click();
 		
+		
 		assertTrue(this.driver.getPageSource().contains("Usuário e/ou senha inválidos."));
+		
+		if(this.driver.getPageSource().contains("Usuário e/ou senha inválidos.") != true)
+		{
+			System.out.println("Error T16A02");
+			
+		}
 		
 	}
 
