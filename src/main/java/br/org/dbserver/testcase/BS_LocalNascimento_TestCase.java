@@ -14,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import verificationpoint.LoginVerificationPoint;
 
 
-public class BS_DataNascimento_TestCase {
+public class BS_LocalNascimento_TestCase {
 
 	private WebDriver driver;
 	private String message = "";
