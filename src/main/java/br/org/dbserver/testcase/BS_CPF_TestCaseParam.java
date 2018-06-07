@@ -16,19 +16,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.runners.Parameterized;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import verificationpoint.LoginVerificationPoint;
-
 
 @RunWith(value = Parameterized.class)
 public class BS_CPF_TestCaseParam {
 
 	
-    private String expected;
+    private String expected="";
     private String actual = "";
     private WebDriver driver;
     
-	private LoginVerificationPoint verifificationpoint;
-
+    
     public void InputTest_Param(String ac, String ex) {
     	actual= ac;
     	expected= ex;
@@ -44,7 +41,7 @@ public class BS_CPF_TestCaseParam {
     
     public boolean Verify_CPF(String in, String expected)
     {		
-
+    	
     	WebElement usernameTextField = this.driver.findElement(By.name("txtUsuario"));
 		usernameTextField.sendKeys("lucaspp");
 		
@@ -70,6 +67,7 @@ public class BS_CPF_TestCaseParam {
 			{
 			return false;
 			}
+	
     }
     
     @Before 
@@ -79,9 +77,11 @@ public class BS_CPF_TestCaseParam {
 		this.driver = new ChromeDriver();
 		driver.get("https://devbs.azurewebsites.net");
 		
-		this.verifificationpoint = new LoginVerificationPoint(driver);
+		//Estou utilizando o assert neste exemplo para demostrar conhecimento
+		//this.verifificationpoint = new LoginVerificationPoint(driver);
 	}
-        
+
+    
     @Test
       public void test_CPF_Param(){   
     	
@@ -94,4 +94,5 @@ public class BS_CPF_TestCaseParam {
 		this.driver.quit();
 		
 	}
+    
 }
