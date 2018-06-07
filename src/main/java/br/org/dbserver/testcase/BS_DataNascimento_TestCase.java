@@ -14,8 +14,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import verificationpoint.LoginVerificationPoint;
 
 
-
-
 public class BS_DataNascimento_TestCase {
 
 	private WebDriver driver;
@@ -57,6 +55,14 @@ public class BS_DataNascimento_TestCase {
 		
 		actual = LN.findElement(By.xpath("//span[@class='field-validation-valid']")).getText();
 		
+		if( actual.equals(expected)) 
+		{
+			message = message + " - Success"; 
+		}else {
+			message = message + " - Fail";
+			}
+		
+		//System.out.println(message);
 		assertEquals(message,expected, actual);
 	}
 	
@@ -64,6 +70,7 @@ public class BS_DataNascimento_TestCase {
 	public void test_T05A02() {
 		
 		String actual = "";
+		String expected = "";
 		Boolean state = false;
 		message = "T05A02";
 		
@@ -85,15 +92,15 @@ public class BS_DataNascimento_TestCase {
 		
 		actual = LN.findElement(By.xpath("//span[@class='field-validation-error']")).getText();
 	
-		if(actual != "")
+		if( actual.equals(expected)) 
 		{
-			state = false;
-		}
+			message = message + " - Success"; 
+		}else {
+			message = message + " - Fail";
+			}
 		
 		assertTrue(message,state);
 	}
-	
-	
 	
 	@After
 	public void tearDown() {

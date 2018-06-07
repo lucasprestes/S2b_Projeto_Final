@@ -11,7 +11,7 @@ import br.org.dbserver.testcase.*;
 @RunWith(Suite.class)
 @SuiteClasses({
 	
-	BS_Login_TestCase.class
+	BS_Login_TestCase.class, BS_DataNascimento_TestCase.class
 	
 })
 public class RegressionTestSuite {
